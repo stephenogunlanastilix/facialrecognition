@@ -30,7 +30,7 @@ import javax.swing.JPasswordField;
 
 public class Adduser extends JFrame {
 //Variable to get random string from
-public static final String SOURCES ="abcdefghijklmnopqrstuvwxyz1234567890";
+public static final String SOURCES ="1234567890";
 private JPanel contentPane;
 private JButton btnNewButton;
 //Initialize connection to ConnectSql
