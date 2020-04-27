@@ -1,17 +1,29 @@
-package facialrecognition;
+/**
+
+* Menu class previews the options and functionality 
+* that can be carried out on the software
+* 
+
+*/
+
+package bankingsystem;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.Color;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+//Imports Add user class
+import bankingsystem.Adduser;
+
+
 
 public class Menu extends JFrame {
 
@@ -24,7 +36,8 @@ public class Menu extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Menu frame = new Menu();
+					//Sets default Menu parameter to empty
+					Menu frame = new Menu(" ");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +51,7 @@ public class Menu extends JFrame {
 	 * Create the frame.
 	 */
 	public Menu(String user) {
-		setTitle("Security System - Menu");
+		setTitle("Banking System - Menu");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 824, 600);
 		contentPane = new JPanel();
@@ -46,51 +59,68 @@ public class Menu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("What do you want to do ");
-		lblNewLabel.setForeground(new Color(0, 0, 255));
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 25));
-		lblNewLabel.setBounds(255, 93, 284, 42);
-		contentPane.add(lblNewLabel);
-		
-		JButton btnNewButton = new JButton("Capture");
+		JButton btnNewButton = new JButton("Add");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBackground(new Color(0, 0, 255));
+		btnNewButton.setBackground(Color.BLACK);
+			// Action listener set a the action to be performed
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				new registerperson().setVisible(true);
+				 //Redirect users to Add user class by setting visbility to true
+				new Adduser().setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(39, 266, 196, 160);
+		btnNewButton.setBounds(34, 200, 196, 89);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Recognse");
-		btnNewButton_1.setBackground(new Color(135, 206, 250));
-		btnNewButton_1.setBounds(310, 266, 196, 160);
+		JButton btnNewButton_1 = new JButton("Search");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton_1.setForeground(Color.WHITE);
+		btnNewButton_1.setBackground(Color.BLACK);
+		btnNewButton_1.setBounds(287, 200, 196, 89);
+			// Action listener set a the action to be performed
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				 //Redirect users to Search user class by setting visbility to true
+				new Searchuser().setVisible(true);
+			}
+		});
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("Data");
-		btnNewButton_2.setBackground(new Color(255, 255, 0));
-		btnNewButton_2.setBounds(568, 266, 196, 153);
+		JButton btnNewButton_2 = new JButton("Delete");
+		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton_2.setForeground(Color.WHITE);
+		btnNewButton_2.setBackground(Color.BLACK);
+		btnNewButton_2.setBounds(548, 200, 196, 89);
+			// Action listener set a the action to be performed
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				 //Redirect users to Delete user class by setting visbility to true
+				new Deleteuser().setVisible(true);
+			}
+		});
 		contentPane.add(btnNewButton_2);
-		
-		JLabel label = new JLabel("Choose an option");
-		label.setForeground(Color.BLUE);
-		label.setFont(new Font("Yu Gothic", Font.BOLD | Font.ITALIC, 18));
-		label.setBounds(310, 132, 284, 42);
-		contentPane.add(label);
 		
 		JLabel txt_username = new JLabel("Welcome User!");
 		txt_username.setBackground(new Color(0, 0, 255));
-		txt_username.setFont(new Font("Tahoma", Font.ITALIC, 20));
-		txt_username.setBounds(268, 75, 357, 16);
+		txt_username.setFont(new Font("Tahoma", Font.BOLD, 40));
+		txt_username.setBounds(192, 74, 471, 62);
 		txt_username.setText("Welcome " + user);
 		contentPane.add(txt_username);
 		
+		JButton updatebankacct = new JButton("Update bank account");
+		updatebankacct.setFont(new Font("Tahoma", Font.PLAIN, 20));
+			// Action listener set a the action to be performed
+		updatebankacct.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 //Redirect users to Updateacct class by setting visbility to true
+				new Updateacct().setVisible(true);
+			}
+		});
+		updatebankacct.setForeground(Color.WHITE);
+		updatebankacct.setBackground(Color.BLACK);
+		updatebankacct.setBounds(264, 341, 291, 89);
+		contentPane.add(updatebankacct);
+		
 	}
-
-
-	public Menu() {
-		// TODO Auto-generated constructor stub
-	}
-
 }
